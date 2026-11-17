@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCIT PSU - ระบบบัณฑิตศึกษา คณะวิทยาศาสตร์และเทคโนโลยีอุตสาหกรรม</title>
+  
+  <!-- Fonts: Prompt & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Prompt', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            psu: {
+              sidebar: '#181b20',
+              sidebarHover: '#22272f',
+              sidebarActive: '#2a313d',
+              navy: '#00264d',
+              blue: '#005596',
+              sky: '#0284c7',
+              teal: '#319795',
+              linkTeal: '#2b7a88',
+              goldGear: '#f59e0b',
+              fuchsiaNotice: '#d946ef'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+    }
+    /* Custom scrollbar for sidebar */
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #333a46;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="h-full bg-[#f8f9fa] text-slate-800 flex flex-col antialiased">
+
+  <!-- Mobile Top Bar with Hamburger -->
+  <header class="md:hidden bg-[#181b20] text-white px-4 py-3 flex items-center justify-between border-b border-slate-700 z-50 sticky top-0">
+    <div class="flex items-center gap-3">
+      <!-- Colorful Gear Logo -->
+      <svg class="w-8 h-8 flex-shrink-0" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="42" stroke="#f59e0b" stroke-width="8" stroke-dasharray="8 6" />
+        <circle cx="50" cy="50" r="28" fill="#181b20" stroke="#0ea5e9" stroke-width="5" />
+        <path d="M50 32 L50 68 M32 50 L68 50" stroke="#f43f5e" stroke-width="4" stroke-linecap="round" />
+        <circle cx="50" cy="50" r="10" fill="#f59e0b" />
+      </svg>
+      <div>
+        <span class="font-bold text-sm tracking-wide text-white block">SCIT GRADUATE</span>
+        <span class="text-[10px] text-slate-400 block -mt-1">ม.อ. สุราษฎร์ธานี</span>
+      </div>
+    </div>
+    <button id="toggle-sidebar" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle menu">
+      <i class="ph-bold ph-list text-2xl"></i>
+    </button>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden relative">
+
+    <!-- ==================== LEFT SIDEBAR ==================== -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-[#181b20] text-slate-300 flex flex-col border-r border-[#262c36] transform -translate-x-full md:translate-x-0 md:static transition-transform duration-200 ease-in-out">
+      
+      <!-- Sidebar Header / Logo -->
+      <div class="p-5 border-b border-[#262c36]/80 flex items-center gap-3">
+        <!-- Colored PSU SCIT Gear Emblem SVG -->
+        <div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+          <svg class="w-full h-full drop-shadow-md" viewBox="0 0 100 100" fill="none">
+            <!-- Gear Teeth -->
+            <path d="M50 5 L56 16 L68 12 L70 24 L82 25 L79 37 L90 42 L83 52 L91 60 L81 68 L85 80 L73 82 L71 94 L59 91 L53 100 L47 100 L41 91 L29 94 L27 82 L15 80 L19 68 L9 60 L17 52 L10 42 L21 37 L18 25 L30 24 L32 12 L44 16 Z" fill="#d97706" opacity="0.9" />
+            <!-- Colorful inner segments -->
+            <circle cx="50" cy="50" r="32" fill="#181b20" stroke="#f59e0b" stroke-width="4" />
+            <path d="M50 20 A30 30 0 0 1 80 50" stroke="#0284c7" stroke-width="7" stroke-linecap="round" />
+            <path d="M80 50 A30 30 0 0 1 50 80" stroke="#10b981" stroke-width="7" stroke-linecap="round" />
+            <path d="M50 80 A30 30 0 0 1 20 50" stroke="#f43f5e" stroke-width="7" stroke-linecap="round" />
+            <path d="M20 50 A30 30 0 0 1 50 20" stroke="#8b5cf6" stroke-width="7" stroke-linecap="round" />
+            <circle cx="50" cy="50" r="14" fill="#00264d" />
+            <circle cx="50" cy="50" r="6" fill="#f59e0b" />
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <div class="font-extrabold text-white text-base tracking-wider flex items-center gap-1.5">
+            <span>SCIT</span>
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-blue-900/60 text-sky-300 border border-sky-500/30">PSU</span>
+          </div>
+          <div class="text-[11px] text-slate-400 font-light mt-0.5">บัณฑิตศึกษา สุราษฎร์ธานี</div>
+        </div>
+      </div>
+
+      <!-- Navigation Links List -->
+      <nav class="flex-1 overflow-y-auto custom-scroll py-3 px-3 space-y-1">
+        
+        <!-- 1. Home (Active) -->
+        <a href="#home" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] font-medium text-sky-400 bg-[#252b36] border-l-4 border-sky-400 transition">
+          <i class="ph-bold ph-house text-base text-sky-400"></i>
+          <span>Home</span>
+        </a>
+
+        <!-- 2. รายงานสถานะวิทยานิพนธ์ (บว.) -->
+        <a href="thesis-status.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-file-magnifying-glass text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>รายงานสถานะวิทยานิพนธ์ (บว.)</span>
+        </a>
+
+        <!-- 3. เอกสารตามขั้นตอนวิทยานิพนธ์ -->
+        <a href="thesis-documents.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-tree-structure text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>เอกสารตามขั้นตอนวิทยานิพนธ์</span>
+        </a>
+
+        <!-- 5. โครงการพัฒนาบัณฑิต -->
+        <a href="graduate-development.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-chart-line-up text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>โครงการพัฒนาบัณฑิต</span>
+        </a>
+
+        <!-- 6. โครงการเสริมทักษะระดับบัณฑิต -->
+        <a href="skills-enhancement.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-sparkle text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>โครงการเสริมทักษะระดับบัณฑิต</span>
+        </a>
+
+        <!-- 7. English Club -->
+        <a href="english-club.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-translate text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>English Club</span>
+        </a>
+
+        <!-- 8. ลิงก์ที่สำคัญสำหรับบัณฑิต -->
+        <a href="important-links.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-link text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>ลิงก์ที่สำคัญสำหรับบัณฑิต</span>
+        </a>
+
+        <!-- 9. ผลงานตีพิมพ์ -->
+        <a href="publications.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-article text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>ผลงานตีพิมพ์</span>
+        </a>
+
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="p-3 border-t border-[#262c36] text-[11px] text-slate-500 text-center">
+        <span>© 2025-2026 PSU SCIT Graduate</span>
+      </div>
+    </aside>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden"></div>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <main class="flex-1 overflow-y-auto custom-scroll bg-white">
+      
+      <!-- Top Banner (Original Layout Preserved with Clean Modern Visuals) -->
+      <section id="home" class="relative bg-gradient-to-r from-[#003b73] via-[#005596] to-[#0072b2] text-white overflow-hidden shadow-sm">
+        
+        <!-- Subtle Pattern & Angle Overlays -->
+        <div class="absolute inset-0 opacity-15 pointer-events-none">
+          <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 100 100">
+            <polygon points="0,0 35,0 15,100 0,100" fill="#ffffff" />
+            <polygon points="40,0 85,0 70,100 25,100" fill="#38bdf8" opacity="0.3" />
+            <polygon points="80,0 100,0 100,100 65,100" fill="#ffffff" opacity="0.1" />
+          </svg>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 relative z-10">
+          <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+
+            <!-- Left: Graphic Card / Photo Composite (like the diamond photo frames in original) -->
+            <div class="flex items-center gap-4 flex-shrink-0">
+              <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-4 border-white/30 shadow-xl bg-slate-800 rotate-1 transform hover:rotate-0 transition duration-300">
+                <!-- Research illustration/photo placeholder -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-[#00264d] to-[#0284c7] flex flex-col items-center justify-center p-3 text-center">
+                  <i class="ph-duotone ph-student text-4xl sm:text-5xl text-amber-300 mb-1"></i>
+                  <span class="text-[11px] font-semibold text-white tracking-wider uppercase">ADMISSION</span>
+                  <span class="text-[10px] text-sky-200">ป.โท - ป.เอก</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center: Main Banner Titles (Matching the original wording) -->
+            <div class="text-center lg:text-left flex-1 space-y-1">
+              <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-snug">
+                ปฏิทินการรับสมัครบุคคลเข้าศึกษา
+              </h1>
+              <div class="text-lg sm:text-xl lg:text-2xl font-bold text-amber-300">
+                ระดับบัณฑิตศึกษา (ปริญญาโท-เอก)
+              </div>
+              <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-wide">
+                ปีการศึกษา 2568
+              </div>
+              
+              <!-- English Subtitle -->
+              <div class="pt-1.5 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm text-sky-100 font-medium">
+                <span>Graduate Studies</span>
+                <span class="px-2 py-0.5 rounded bg-amber-400 text-slate-900 font-bold text-xs">ADMISSION 2025</span>
+                <span>PSU Academic Year</span>
+              </div>
+            </div>
+
+            <!-- Right: PSU Emblem Circle & Search Box -->
+            <div class="flex flex-col items-center lg:items-end gap-3 flex-shrink-0">
+              <!-- PSU Badge Circle -->
+              <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white text-[#003b73] flex flex-col items-center justify-center shadow-lg font-black border-4 border-blue-200/50">
+                <span class="text-xs sm:text-sm font-bold tracking-wider leading-none text-[#003b73]">PSU</span>
+                <span class="text-[8px] font-medium text-slate-500 mt-0.5">SCIT</span>
+              </div>
+
+              <!-- Quick Search Input (matching original search bar) -->
+              <div class="relative w-52 sm:w-60">
+                <input id="service-search" type="text" placeholder="Search this site..." class="w-full text-xs text-slate-800 placeholder-slate-400 bg-white/95 rounded-full pl-8 pr-3 py-1.5 shadow focus:outline-none focus:ring-2 focus:ring-amber-400 transition" />
+                <i class="ph ph-magnifying-glass absolute left-2.5 top-2 text-slate-400 text-xs"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Magenta Admission Announcement Bar (matching original: "เว็บไซต์การสมัคร ดังนี้คะ https://grad-mis.psu.ac.th/admission/home.php") -->
+      <section class="bg-fuchsia-50 border-y border-fuchsia-100 py-3 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-center text-sm">
+          <span class="text-[#e11d48] font-semibold flex items-center gap-1.5">
+            <i class="ph-fill ph-link-simple-horizontal text-base"></i>
+            <span>เว็บไซต์การสมัคร ดังนี้ค่ะ :</span>
+          </span>
+          <a href="https://grad-mis.psu.ac.th/admission/home.php" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-900 font-bold underline underline-offset-2 break-all hover:bg-fuchsia-100/60 px-2 py-0.5 rounded transition">
+            https://grad-mis.psu.ac.th/admission/home.php
+          </a>
+        </div>
+      </section>
+
+      <!-- ==================== MAIN CONTENT GRID (Original 2-Column Style) ==================== -->
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- 2-Column Grid of Services & Items -->
+        <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10">
+
+          <!-- ITEM 1: ตรวจสอบ/ติดตามสถานะเอกสาร บว. -->
+          <div class="service-card flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200/80 transition duration-200">
+            <!-- Gear Icon 1: Graduation cap on book with gear border -->
+            <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative flex items-center justify-center">
+              <svg class="w-full h-full drop-shadow-md" viewBox="0 0 120 120" fill="none">
+                <!-- Gear teeth -->
+                <circle cx="60" cy="60" r="50" stroke="#f59e0b" stroke-width="10" stroke-dasharray="14 8" />
+                <!-- Colorful rim segments -->
+                <circle cx="60" cy="60" r="40" stroke="#0ea5e9" stroke-width="4" />
+                <circle cx="60" cy="60" r="34" fill="#ffffff" />
+                <!-- Graduation Cap and Books inside -->
+                <path d="M60 40 L85 52 L60 64 L35 52 Z" fill="#00264d" />
+                <path d="M48 58 L48 70 C48 76 72 76 72 70 L72 58" fill="#00264d" />
+                <path d="M85 52 L85 68" stroke="#f59e0b" stroke-width="2.5" />
+                <circle cx="85" cy="70" r="2.5" fill="#f59e0b" />
+                <!-- Book base -->
+                <rect x="42" y="74" width="36" height="5" rx="1.5" fill="#10b981" />
+                <rect x="40" y="80" width="40" height="5" rx="1.5" fill="#f43f5e" />
+              </svg>
+            </div>
+            <!-- Text Content -->
+            <div class="pt-2">
+              <h3 class="text-base sm:text-lg font-bold">
+                <a href="thesis-status.html" class="text-[#2b7a88] hover:text-[#1d555f] underline decoration-2 underline-offset-4 transition">
+                  ตรวจสอบ/ติดตามสถานะ เอกสาร บว.
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                นักศึกษาตรวจสอบ/ติดตามสถานะเอกสาร บว. ในระบบบัณฑิตวิทยาลัย
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 2: เอกสารตามขั้นตอนวิทยานิพนธ์ -->
+          <div class="service-card flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200/80 transition duration-200">
+            <!-- Gear Icon 2: Graduates caps tossing with gear border -->
+            <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative flex items-center justify-center">
+              <svg class="w-full h-full drop-shadow-md" viewBox="0 0 120 120" fill="none">
+                <circle cx="60" cy="60" r="50" stroke="#f59e0b" stroke-width="10" stroke-dasharray="14 8" />
+                <circle cx="60" cy="60" r="40" stroke="#0ea5e9" stroke-width="4" />
+                <circle cx="60" cy="60" r="34" fill="#ffffff" />
+                <!-- Text "Graduates" in arc or center -->
+                <text x="60" y="47" font-size="11" font-weight="bold" fill="#0284c7" text-anchor="middle" font-family="sans-serif">Graduates</text>
+                <!-- Caps flying -->
+                <path d="M45 54 L58 50 L50 60 Z" fill="#00264d" />
+                <path d="M72 52 L85 58 L72 63 Z" fill="#00264d" />
+                <!-- Hands reaching up -->
+                <path d="M42 85 C42 75 48 68 48 68 M60 85 C60 72 60 65 60 65 M78 85 C78 75 72 68 72 68" stroke="#d97706" stroke-width="4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <!-- Text Content -->
+            <div class="pt-2">
+              <h3 class="text-base sm:text-lg font-bold text-slate-800">
+                <a href="thesis-documents.html" class="text-slate-900 hover:text-psu-blue underline decoration-2 underline-offset-4 transition">
+                  เอกสารตามขั้นตอนวิทยานิพนธ์
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                Flowchart แสดงขั้นตอนการดำเนินงานด้านเอกสารและแบบฟอร์ม บว.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 4: โครงการพัฒนาบัณฑิต -->
+          <div class="service-card flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200/80 transition duration-200">
+            <!-- Gear Icon 4: Growth / Training Presentation -->
+            <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative flex items-center justify-center">
+              <svg class="w-full h-full drop-shadow-md" viewBox="0 0 120 120" fill="none">
+                <circle cx="60" cy="60" r="50" stroke="#f59e0b" stroke-width="10" stroke-dasharray="14 8" />
+                <circle cx="60" cy="60" r="40" stroke="#10b981" stroke-width="4" />
+                <circle cx="60" cy="60" r="34" fill="#ffffff" />
+                <!-- Presentation Board & Person -->
+                <rect x="42" y="42" width="36" height="24" rx="2" fill="#00264d" />
+                <line x1="48" y1="58" x2="56" y2="52" stroke="#10b981" stroke-width="2" />
+                <line x1="56" y1="52" x2="64" y2="55" stroke="#10b981" stroke-width="2" />
+                <line x1="64" y1="55" x2="72" y2="47" stroke="#10b981" stroke-width="2" />
+                <circle cx="60" cy="74" r="5" fill="#f59e0b" />
+                <path d="M52 86 C52 79 68 79 68 86" stroke="#00264d" stroke-width="3" stroke-linecap="round" fill="none" />
+              </svg>
+            </div>
+            <!-- Text Content -->
+            <div class="pt-2">
+              <h3 class="text-base sm:text-lg font-bold">
+                <a href="graduate-development.html" class="text-[#2b7a88] hover:text-[#1d555f] underline decoration-2 underline-offset-4 transition">
+                  โครงการพัฒนาบัณฑิต
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                รายละเอียดโครงการและกำหนดการเกี่ยวกับโครงการพัฒนาวิชาการ
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 5: โครงการเสริมทักษะระดับบัณฑิต -->
+          <div class="service-card flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200/80 transition duration-200">
+            <!-- Gear Icon 5: Target / Skills / Lightbulb -->
+            <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative flex items-center justify-center">
+              <svg class="w-full h-full drop-shadow-md" viewBox="0 0 120 120" fill="none">
+                <circle cx="60" cy="60" r="50" stroke="#f59e0b" stroke-width="10" stroke-dasharray="14 8" />
+                <circle cx="60" cy="60" r="40" stroke="#f43f5e" stroke-width="4" />
+                <circle cx="60" cy="60" r="34" fill="#ffffff" />
+                <!-- Lightbulb / Skill Spark -->
+                <path d="M52 56 C48 52 48 45 52 41 C56 37 64 37 68 41 C72 45 72 52 68 56 L65 65 L55 65 Z" fill="#f59e0b" />
+                <rect x="56" y="67" width="8" height="4" rx="1" fill="#64748b" />
+                <!-- Gear sparks -->
+                <path d="M43 45 L38 43 M77 45 L82 43 M60 33 L60 28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <!-- Text Content -->
+            <div class="pt-2">
+              <h3 class="text-base sm:text-lg font-bold">
+                <a href="skills-enhancement.html" class="text-[#2b7a88] hover:text-[#1d555f] underline decoration-2 underline-offset-4 transition">
+                  โครงการเสริมทักษะระดับบัณฑิต
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                รายละเอียดโครงการและกำหนดการเพื่อการพัฒนาและเสริมทักษะ
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 6: English Club -->
+          <div class="service-card flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200/80 transition duration-200">
+            <!-- Gear Icon 6: Globe / English Speech bubbles -->
+            <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative flex items-center justify-center">
+              <svg class="w-full h-full drop-shadow-md" viewBox="0 0 120 120" fill="none">
+                <circle cx="60" cy="60" r="50" stroke="#f59e0b" stroke-width="10" stroke-dasharray="14 8" />
+                <circle cx="60" cy="60" r="40" stroke="#0ea5e9" stroke-width="4" />
+                <circle cx="60" cy="60" r="34" fill="#ffffff" />
+                <!-- Globe lines -->
+                <circle cx="60" cy="60" r="18" stroke="#0284c7" stroke-width="2" fill="#e0f2fe" />
+                <ellipse cx="60" cy="60" rx="9" ry="18" stroke="#0284c7" stroke-width="1.5" />
+                <line x1="42" y1="60" x2="78" y2="60" stroke="#0284c7" stroke-width="1.5" />
+                <!-- Speech bubble "EN" -->
+                <rect x="62" y="40" width="22" height="15" rx="3" fill="#f43f5e" />
+                <text x="73" y="51" font-size="9" font-weight="bold" fill="#ffffff" text-anchor="middle" font-family="sans-serif">EN</text>
+              </svg>
+            </div>
+            <!-- Text Content -->
+            <div class="pt-2">
+              <h3 class="text-base sm:text-lg font-bold">
+                <a href="#english" class="text-[#2b7a88] hover:text-[#1d555f] underline decoration-2 underline-offset-4 transition">
+                  English Club
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                รายละเอียดโครงการเสริมทักษะทางภาษาอังกฤษและการนำเสนอสากล
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 7: ลิงก์สำคัญสำหรับบัณฑิตศึกษา -->
+          <div class="service-card flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200/80 transition duration-200">
+            <!-- Gear Icon 7: Chain Links / Portal Nodes -->
+            <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative flex items-center justify-center">
+              <svg class="w-full h-full drop-shadow-md" viewBox="0 0 120 120" fill="none">
+                <circle cx="60" cy="60" r="50" stroke="#f59e0b" stroke-width="10" stroke-dasharray="14 8" />
+                <circle cx="60" cy="60" r="40" stroke="#6366f1" stroke-width="4" />
+                <circle cx="60" cy="60" r="34" fill="#ffffff" />
+                <!-- Chain link graphic -->
+                <rect x="44" y="52" width="20" height="12" rx="6" stroke="#4f46e5" stroke-width="3" fill="none" />
+                <rect x="56" y="52" width="20" height="12" rx="6" stroke="#0284c7" stroke-width="3" fill="none" />
+              </svg>
+            </div>
+            <!-- Text Content -->
+            <div class="pt-2">
+              <h3 class="text-base sm:text-lg font-bold">
+                <a href="#links" class="text-[#2b7a88] hover:text-[#1d555f] underline decoration-2 underline-offset-4 transition">
+                  ลิงก์สำคัญกับบัณฑิตศึกษา
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                ลิงก์ต่างๆ ที่เกี่ยวข้องกับบัณฑิตศึกษา มหาวิทยาลัยสงขลานครินทร์
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 8: เอกสารที่เกี่ยวข้อง (ผลงานตีพิมพ์ & การสอบ) -->
+          <div class="service-card flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200/80 transition duration-200">
+            <!-- Gear Icon 8: Paper / Article with checkmark -->
+            <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative flex items-center justify-center">
+              <svg class="w-full h-full drop-shadow-md" viewBox="0 0 120 120" fill="none">
+                <circle cx="60" cy="60" r="50" stroke="#f59e0b" stroke-width="10" stroke-dasharray="14 8" />
+                <circle cx="60" cy="60" r="40" stroke="#10b981" stroke-width="4" />
+                <circle cx="60" cy="60" r="34" fill="#ffffff" />
+                <!-- Document paper with fold -->
+                <path d="M46 42 L66 42 L74 50 L74 78 L46 78 Z" fill="#f1f5f9" stroke="#0f172a" stroke-width="2.5" />
+                <polyline points="66,42 66,50 74,50" fill="none" stroke="#0f172a" stroke-width="2.5" />
+                <line x1="52" y1="58" x2="68" y2="58" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+                <line x1="52" y1="64" x2="68" y2="64" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+                <circle cx="60" cy="74" r="6" fill="#10b981" />
+                <polyline points="58,74 60,76 63,72" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <!-- Text Content -->
+            <div class="pt-2">
+              <h3 class="text-base sm:text-lg font-bold">
+                <a href="#publications" class="text-[#2b7a88] hover:text-[#1d555f] underline decoration-2 underline-offset-4 transition">
+                  เอกสารที่เกี่ยวข้อง
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                เอกสารที่เกี่ยวข้องกับการสอบวิทยานิพนธ์ และการรายงานผลงานตีพิมพ์
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <hr class="my-12 border-slate-200">
+
+        <!-- ==================== CONTACT SECTION (Exact wording from original) ==================== -->
+        <div id="contact" class="max-w-2xl mx-auto flex flex-col items-center text-center p-6 bg-slate-50/80 rounded-3xl border border-slate-200/90 shadow-sm">
+          
+          <!-- Contact Badge / Gear Icon -->
+          <div class="w-20 h-20 mb-3 relative flex items-center justify-center">
+            <svg class="w-full h-full drop-shadow" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="42" stroke="#f59e0b" stroke-width="8" stroke-dasharray="10 6" />
+              <circle cx="50" cy="50" r="32" fill="#00264d" />
+              <path d="M50 35 C45 35 41 39 41 44 C41 49 45 53 50 53 C55 53 59 49 59 44 C59 39 55 35 50 35 Z" fill="#ffffff" />
+              <path d="M36 65 C36 57 44 57 50 57 C56 57 64 57 64 65" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
+            </svg>
+          </div>
+
+          <!-- Section Title: ติดต่อสอบถาม -->
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">ติดต่อสอบถาม</h2>
+
+          <!-- Contact Details (exact text & format from original) -->
+          <div class="space-y-1.5 text-sm sm:text-base text-slate-700 italic font-medium">
+            <p class="text-slate-900 font-semibold not-italic">
+              คุณ พันธ์ทิพย์ เจริญศักดิ์ (พี่จุ๊บ)
+            </p>
+            <p class="text-slate-600">
+              นักวิชาการอุดมศึกษา
+            </p>
+            <p>
+              เบอร์ติดต่อภายใน : <a href="tel:077278889" class="not-italic text-psu-blue font-bold hover:underline">077 278 889</a>
+            </p>
+            <p>
+              E-mail : <a href="mailto:pantip.ch@psu.ac.th" class="not-italic text-psu-blue font-bold hover:underline">pantip.ch@psu.ac.th</a>
+            </p>
+          </div>
+
+          <div class="mt-4 text-xs text-slate-400 not-italic">
+            สำนักงานคณะวิทยาศาสตร์และเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Footer Info -->
+      <footer class="bg-slate-100 border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-500">
+        คณะวิทยาศาสตร์และเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี • SCIT PSU
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- JavaScript for Interaction -->
+  <script>
+    // Mobile Drawer Toggle
+    const toggleBtn = document.getElementById('toggle-sidebar');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (toggleBtn && sidebar && overlay) {
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('hidden');
+      });
+
+      overlay.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      });
+    }
+
+    // Sidebar active highlight
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navItems.forEach(i => {
+          i.classList.remove('text-sky-400', 'bg-[#252b36]', 'border-l-4', 'border-sky-400');
+          i.classList.add('text-slate-300');
+        });
+        item.classList.add('text-sky-400', 'bg-[#252b36]', 'border-l-4', 'border-sky-400');
+        item.classList.remove('text-slate-300');
+        
+        // Auto-close on mobile
+        if (window.innerWidth < 768) {
+          sidebar.classList.add('-translate-x-full');
+          overlay.classList.add('hidden');
+        }
+      });
+    });
+
+    // Real-time Service Search Filter
+    const searchInput = document.getElementById('service-search');
+    const cards = document.querySelectorAll('.service-card');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายงานสถานะวิทยานิพนธ์ (บว.) | SCIT PSU</title>
+  
+  <!-- Fonts: Prompt & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Prompt', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            psu: {
+              sidebar: '#181b20',
+              sidebarHover: '#22272f',
+              sidebarActive: '#2a313d',
+              navy: '#00264d',
+              blue: '#005596',
+              sky: '#0284c7',
+              teal: '#319795',
+              linkTeal: '#2b7a88',
+              goldGear: '#f59e0b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #333a46;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="h-full bg-[#f8f9fa] text-slate-800 flex flex-col antialiased">
+
+  <!-- Mobile Top Bar with Hamburger -->
+  <header class="md:hidden bg-[#181b20] text-white px-4 py-3 flex items-center justify-between border-b border-slate-700 z-50 sticky top-0">
+    <div class="flex items-center gap-3">
+      <svg class="w-8 h-8 flex-shrink-0" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="42" stroke="#f59e0b" stroke-width="8" stroke-dasharray="8 6" />
+        <circle cx="50" cy="50" r="28" fill="#181b20" stroke="#0ea5e9" stroke-width="5" />
+        <path d="M50 32 L50 68 M32 50 L68 50" stroke="#f43f5e" stroke-width="4" stroke-linecap="round" />
+        <circle cx="50" cy="50" r="10" fill="#f59e0b" />
+      </svg>
+      <div>
+        <span class="font-bold text-sm tracking-wide text-white block">SCIT GRADUATE</span>
+        <span class="text-[10px] text-slate-400 block -mt-1">รายงานสถานะวิทยานิพนธ์</span>
+      </div>
+    </div>
+    <button id="toggle-sidebar" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle menu">
+      <i class="ph-bold ph-list text-2xl"></i>
+    </button>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden relative">
+
+    <!-- ==================== LEFT SIDEBAR ==================== -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-[#181b20] text-slate-300 flex flex-col border-r border-[#262c36] transform -translate-x-full md:translate-x-0 md:static transition-transform duration-200 ease-in-out">
+      
+      <!-- Sidebar Header / Logo -->
+      <div class="p-5 border-b border-[#262c36]/80 flex items-center gap-3">
+        <div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+          <svg class="w-full h-full drop-shadow-md" viewBox="0 0 100 100" fill="none">
+            <path d="M50 5 L56 16 L68 12 L70 24 L82 25 L79 37 L90 42 L83 52 L91 60 L81 68 L85 80 L73 82 L71 94 L59 91 L53 100 L47 100 L41 91 L29 94 L27 82 L15 80 L19 68 L9 60 L17 52 L10 42 L21 37 L18 25 L30 24 L32 12 L44 16 Z" fill="#d97706" opacity="0.9" />
+            <circle cx="50" cy="50" r="32" fill="#181b20" stroke="#f59e0b" stroke-width="4" />
+            <path d="M50 20 A30 30 0 0 1 80 50" stroke="#0284c7" stroke-width="7" stroke-linecap="round" />
+            <path d="M80 50 A30 30 0 0 1 50 80" stroke="#10b981" stroke-width="7" stroke-linecap="round" />
+            <path d="M50 80 A30 30 0 0 1 20 50" stroke="#f43f5e" stroke-width="7" stroke-linecap="round" />
+            <path d="M20 50 A30 30 0 0 1 50 20" stroke="#8b5cf6" stroke-width="7" stroke-linecap="round" />
+            <circle cx="50" cy="50" r="14" fill="#00264d" />
+            <circle cx="50" cy="50" r="6" fill="#f59e0b" />
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <div class="font-extrabold text-white text-base tracking-wider flex items-center gap-1.5">
+            <span>SCIT</span>
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-blue-900/60 text-sky-300 border border-sky-500/30">PSU</span>
+          </div>
+          <div class="text-[11px] text-slate-400 font-light mt-0.5">บัณฑิตศึกษา สุราษฎร์ธานี</div>
+        </div>
+      </div>
+
+      <!-- Navigation Links List -->
+      <nav class="flex-1 overflow-y-auto custom-scroll py-3 px-3 space-y-1">
+        
+        <!-- 1. Home -->
+        <a href="index.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-house text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>Home</span>
+        </a>
+
+        <!-- 2. รายงานสถานะวิทยานิพนธ์ (บว.) - ACTIVE -->
+        <a href="thesis-status.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] font-medium text-sky-400 bg-[#252b36] border-l-4 border-sky-400 transition">
+          <i class="ph-bold ph-file-magnifying-glass text-base text-sky-400"></i>
+          <span>รายงานสถานะวิทยานิพนธ์ (บว.)</span>
+        </a>
+
+        <!-- 3. เอกสารตามขั้นตอนวิทยานิพนธ์ -->
+        <a href="thesis-documents.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-tree-structure text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>เอกสารตามขั้นตอนวิทยานิพนธ์</span>
+        </a>
+
+        <!-- 5. โครงการพัฒนาบัณฑิต -->
+        <a href="graduate-development.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-chart-line-up text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>โครงการพัฒนาบัณฑิต</span>
+        </a>
+
+        <!-- 6. โครงการเสริมทักษะระดับบัณฑิต -->
+        <a href="skills-enhancement.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-sparkle text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>โครงการเสริมทักษะระดับบัณฑิต</span>
+        </a>
+
+        <!-- 7. English Club -->
+        <a href="english-club.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-translate text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>English Club</span>
+        </a>
+
+        <!-- 8. ลิงก์ที่สำคัญสำหรับบัณฑิต -->
+        <a href="index.html#links" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-link text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>ลิงก์ที่สำคัญสำหรับบัณฑิต</span>
+        </a>
+
+        <!-- 9. ผลงานตีพิมพ์ -->
+        <a href="index.html#publications" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-article text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>ผลงานตีพิมพ์</span>
+        </a>
+
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="p-3 border-t border-[#262c36] text-[11px] text-slate-500 text-center">
+        <span>© 2025-2026 PSU SCIT Graduate</span>
+      </div>
+    </aside>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden"></div>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <main class="flex-1 overflow-y-auto custom-scroll bg-white">
+      
+      <!-- Page Header Banner -->
+      <section class="bg-gradient-to-r from-[#00264d] via-[#004b87] to-[#0077b6] text-white py-8 px-4 sm:px-8 border-b border-blue-900/30 relative overflow-hidden">
+        <!-- Background graphics -->
+        <div class="absolute -right-10 -bottom-10 opacity-10 text-white text-9xl pointer-events-none">
+          <i class="ph ph-file-magnifying-glass"></i>
+        </div>
+
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
+          <div>
+            <!-- Breadcrumb -->
+            <div class="flex items-center gap-2 text-xs text-sky-200 mb-2">
+              <a href="index.html" class="hover:underline flex items-center gap-1">
+                <i class="ph ph-house"></i>
+                <span>หน้าแรก</span>
+              </a>
+              <span>/</span>
+              <span class="text-white font-medium">รายงานสถานะวิทยานิพนธ์ (บว.)</span>
+            </div>
+            
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
+              <span>รายงานสถานะวิทยานิพนธ์ (บว.)</span>
+            </h1>
+            <p class="text-xs sm:text-sm text-sky-100 mt-1 max-w-2xl font-light">
+              ตรวจสอบและติดตามขั้นตอนความก้าวหน้าของวิทยานิพนธ์ การดำเนินงานด้านเอกสาร และสถานะทางวิชาการแยกตามแต่ละหลักสูตร
+            </p>
+          </div>
+
+          <div class="flex-shrink-0">
+            <a href="https://grad-mis.psu.ac.th/admission/home.php" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold text-xs sm:text-sm rounded-xl shadow-md transition">
+              <i class="ph-bold ph-arrow-square-out"></i>
+              <span>ระบบ บว. MIS</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Curriculum Sheets Grid -->
+      <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+              <i class="ph-duotone ph-table text-psu-blue text-2xl"></i>
+              <span>เลือกระดับหลักสูตรเพื่อตรวจสอบสถานะ</span>
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">คลิกที่หลักสูตรด้านล่างเพื่อเปิดรายงานในรูปแบบ Google Spreadsheet</p>
+          </div>
+
+          <!-- Quick Search -->
+          <div class="relative w-full sm:w-64">
+            <input id="curriculum-search" type="text" placeholder="ค้นหาหลักสูตร..." class="w-full text-xs text-slate-800 placeholder-slate-400 bg-slate-50 border border-slate-200 rounded-xl pl-8 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-psu-blue transition" />
+            <i class="ph ph-magnifying-glass absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
+          </div>
+        </div>
+
+        <div id="curriculum-list" class="space-y-6">
+
+          <!-- 1. หลักสูตร วท.ม. สาขาวิชาเคมีประยุกต์ -->
+          <div class="curriculum-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-400 shadow-sm hover:shadow-md transition duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="flex items-start gap-4">
+              <!-- Program Icon / Emblem -->
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-600 to-blue-600 text-white flex-shrink-0 flex items-center justify-center text-3xl shadow-md">
+                <i class="ph-duotone ph-flask"></i>
+              </div>
+              
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 bg-blue-50 text-psu-blue text-[11px] font-bold rounded border border-blue-200/60 uppercase">วท.ม. (M.Sc.)</span>
+                  <span class="text-xs text-emerald-600 font-medium flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>อัปเดตล่าสุดในระบบ</span>
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 hover:text-psu-blue transition">
+                  <a href="https://docs.google.com/spreadsheets/d/198JpbNKHpawd6PiWdt0Nv7aNJbc-Luhq/edit?usp=sharing&ouid=105133409467368279691&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">
+                    หลักสูตร วท.ม. สาขาวิชาเคมีประยุกต์
+                  </a>
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  ติดตามสถานะรายงานความก้าวหน้า การยื่นขอสอบโครงร่าง และการสอบวิทยานิพนธ์ฉบับสมบูรณ์
+                </p>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <div class="flex-shrink-0 w-full md:w-auto">
+              <a href="https://docs.google.com/spreadsheets/d/198JpbNKHpawd6PiWdt0Nv7aNJbc-Luhq/edit?usp=sharing&ouid=105133409467368279691&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-psu-blue hover:bg-slate-900 text-white font-semibold text-xs sm:text-sm rounded-xl shadow transition">
+                <i class="ph-bold ph-table"></i>
+                <span>เปิดดู Spreadsheet</span>
+                <i class="ph-bold ph-arrow-up-right text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 2. หลักสูตร วท.ม.เเละ ปร.ด. สาขาเทคโนโลยียาง -->
+          <div class="curriculum-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-amber-400 shadow-sm hover:shadow-md transition duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="flex items-start gap-4">
+              <!-- Program Icon / Emblem -->
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-700 text-white flex-shrink-0 flex items-center justify-center text-3xl shadow-md">
+                <i class="ph-duotone ph-atom"></i>
+              </div>
+              
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 bg-amber-50 text-amber-800 text-[11px] font-bold rounded border border-amber-200/80 uppercase">วท.ม. & ปร.ด. (M.Sc. & Ph.D.)</span>
+                  <span class="text-xs text-emerald-600 font-medium flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>อัปเดตล่าสุดในระบบ</span>
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 hover:text-amber-700 transition">
+                  <a href="https://docs.google.com/spreadsheets/d/1SkoeXIJdZpZQck6UZzoW6NN5Yv3fBbqh/edit?usp=sharing&ouid=105133409467368279691&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">
+                    หลักสูตร วท.ม. เเละ ปร.ด. สาขาเทคโนโลยียาง
+                  </a>
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  ติดตามสถานะรายงานความก้าวหน้า เกณฑ์การตีพิมพ์ระดับนานาชาติ และเอกสาร บว.
+                </p>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <div class="flex-shrink-0 w-full md:w-auto">
+              <a href="https://docs.google.com/spreadsheets/d/1SkoeXIJdZpZQck6UZzoW6NN5Yv3fBbqh/edit?usp=sharing&ouid=105133409467368279691&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-amber-600 hover:bg-slate-900 text-white font-semibold text-xs sm:text-sm rounded-xl shadow transition">
+                <i class="ph-bold ph-table"></i>
+                <span>เปิดดู Spreadsheet</span>
+                <i class="ph-bold ph-arrow-up-right text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 3. หลักสูตร วท.ม. สาขาวิชาคณิตศาสตร์ประยุกต์เเละวิทยาการคำนวณ -->
+          <div class="curriculum-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-400 shadow-sm hover:shadow-md transition duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="flex items-start gap-4">
+              <!-- Program Icon / Emblem -->
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-700 text-white flex-shrink-0 flex items-center justify-center text-3xl shadow-md">
+                <i class="ph-duotone ph-calculator"></i>
+              </div>
+              
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 bg-purple-50 text-purple-700 text-[11px] font-bold rounded border border-purple-200/80 uppercase">วท.ม. (M.Sc.)</span>
+                  <span class="text-xs text-emerald-600 font-medium flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>อัปเดตล่าสุดในระบบ</span>
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 hover:text-purple-700 transition">
+                  <a href="https://docs.google.com/spreadsheets/d/1avf1RwnKLvlM-sz2XHPzdq-3zZ-EVeJ6/edit?usp=sharing&ouid=105133409467368279691&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">
+                    หลักสูตร วท.ม. สาขาวิชาคณิตศาสตร์ประยุกต์เเละวิทยาการคำนวณ
+                  </a>
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  ติดตามขั้นตอนการเสนอหัวข้อ สอบโครงร่าง สอบปากเปล่า และตรวจสอบคุณสมบัติการสำเร็จการศึกษา
+                </p>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <div class="flex-shrink-0 w-full md:w-auto">
+              <a href="https://docs.google.com/spreadsheets/d/1avf1RwnKLvlM-sz2XHPzdq-3zZ-EVeJ6/edit?usp=sharing&ouid=105133409467368279691&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-purple-600 hover:bg-slate-900 text-white font-semibold text-xs sm:text-sm rounded-xl shadow transition">
+                <i class="ph-bold ph-table"></i>
+                <span>เปิดดู Spreadsheet</span>
+                <i class="ph-bold ph-arrow-up-right text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Help Info Box -->
+        <div class="mt-10 bg-slate-50 rounded-2xl p-5 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-psu-blue flex items-center justify-center text-xl flex-shrink-0">
+              <i class="ph-bold ph-info"></i>
+            </div>
+            <div>
+              <div class="text-sm font-bold text-slate-800">พบปัญหาในการเข้าถึงข้อมูล หรือต้องการสอบถามสถานะเพิ่มเติม?</div>
+              <div class="text-xs text-slate-500">สามารถติดต่อ คุณพันธ์ทิพย์ เจริญศักดิ์ (พี่จุ๊บ) นักวิชาการอุดมศึกษา เบอร์ภายใน 077 278 889</div>
+            </div>
+          </div>
+          <a href="mailto:pantip.ch@psu.ac.th" class="inline-flex items-center gap-1.5 text-xs font-bold text-psu-blue hover:underline flex-shrink-0">
+            <i class="ph-bold ph-envelope"></i>
+            <span>ส่งอีเมลติดต่อ</span>
+          </a>
+        </div>
+
+      </section>
+
+      <!-- Footer Info -->
+      <footer class="bg-slate-100 border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-500">
+        คณะวิทยาศาสตร์และเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี • SCIT PSU
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- JavaScript for Interactions -->
+  <script>
+    // Mobile Drawer Toggle
+    const toggleBtn = document.getElementById('toggle-sidebar');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (toggleBtn && sidebar && overlay) {
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('hidden');
+      });
+
+      overlay.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      });
+    }
+
+    // Search filter for curriculums
+    const searchInput = document.getElementById('curriculum-search');
+    const items = document.querySelectorAll('.curriculum-item');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        items.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          if (text.includes(query)) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เอกสารตามขั้นตอนวิทยานิพนธ์ | SCIT PSU</title>
+  
+  <!-- Fonts: Prompt & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Prompt', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            psu: {
+              sidebar: '#181b20',
+              sidebarHover: '#22272f',
+              sidebarActive: '#2a313d',
+              navy: '#00264d',
+              blue: '#005596',
+              sky: '#0284c7',
+              teal: '#319795',
+              linkTeal: '#2b7a88',
+              goldGear: '#f59e0b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #333a46;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="h-full bg-[#f8f9fa] text-slate-800 flex flex-col antialiased">
+
+  <!-- Mobile Top Bar with Hamburger -->
+  <header class="md:hidden bg-[#181b20] text-white px-4 py-3 flex items-center justify-between border-b border-slate-700 z-50 sticky top-0">
+    <div class="flex items-center gap-3">
+      <svg class="w-8 h-8 flex-shrink-0" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="42" stroke="#f59e0b" stroke-width="8" stroke-dasharray="8 6" />
+        <circle cx="50" cy="50" r="28" fill="#181b20" stroke="#0ea5e9" stroke-width="5" />
+        <path d="M50 32 L50 68 M32 50 L68 50" stroke="#f43f5e" stroke-width="4" stroke-linecap="round" />
+        <circle cx="50" cy="50" r="10" fill="#f59e0b" />
+      </svg>
+      <div>
+        <span class="font-bold text-sm tracking-wide text-white block">SCIT GRADUATE</span>
+        <span class="text-[10px] text-slate-400 block -mt-1">เอกสารตามขั้นตอนวิทยานิพนธ์</span>
+      </div>
+    </div>
+    <button id="toggle-sidebar" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle menu">
+      <i class="ph-bold ph-list text-2xl"></i>
+    </button>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden relative">
+
+    <!-- ==================== LEFT SIDEBAR ==================== -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-[#181b20] text-slate-300 flex flex-col border-r border-[#262c36] transform -translate-x-full md:translate-x-0 md:static transition-transform duration-200 ease-in-out">
+      
+      <!-- Sidebar Header / Logo -->
+      <div class="p-5 border-b border-[#262c36]/80 flex items-center gap-3">
+        <div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+          <svg class="w-full h-full drop-shadow-md" viewBox="0 0 100 100" fill="none">
+            <path d="M50 5 L56 16 L68 12 L70 24 L82 25 L79 37 L90 42 L83 52 L91 60 L81 68 L85 80 L73 82 L71 94 L59 91 L53 100 L47 100 L41 91 L29 94 L27 82 L15 80 L19 68 L9 60 L17 52 L10 42 L21 37 L18 25 L30 24 L32 12 L44 16 Z" fill="#d97706" opacity="0.9" />
+            <circle cx="50" cy="50" r="32" fill="#181b20" stroke="#f59e0b" stroke-width="4" />
+            <path d="M50 20 A30 30 0 0 1 80 50" stroke="#0284c7" stroke-width="7" stroke-linecap="round" />
+            <path d="M80 50 A30 30 0 0 1 50 80" stroke="#10b981" stroke-width="7" stroke-linecap="round" />
+            <path d="M50 80 A30 30 0 0 1 20 50" stroke="#f43f5e" stroke-width="7" stroke-linecap="round" />
+            <path d="M20 50 A30 30 0 0 1 50 20" stroke="#8b5cf6" stroke-width="7" stroke-linecap="round" />
+            <circle cx="50" cy="50" r="14" fill="#00264d" />
+            <circle cx="50" cy="50" r="6" fill="#f59e0b" />
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <div class="font-extrabold text-white text-base tracking-wider flex items-center gap-1.5">
+            <span>SCIT</span>
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-blue-900/60 text-sky-300 border border-sky-500/30">PSU</span>
+          </div>
+          <div class="text-[11px] text-slate-400 font-light mt-0.5">บัณฑิตศึกษา สุราษฎร์ธานี</div>
+        </div>
+      </div>
+
+      <!-- Navigation Links List -->
+      <nav class="flex-1 overflow-y-auto custom-scroll py-3 px-3 space-y-1">
+        
+        <!-- 1. Home -->
+        <a href="index.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-house text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>Home</span>
+        </a>
+
+        <!-- 2. รายงานสถานะวิทยานิพนธ์ (บว.) -->
+        <a href="thesis-status.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-file-magnifying-glass text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>รายงานสถานะวิทยานิพนธ์ (บว.)</span>
+        </a>
+
+        <!-- 3. เอกสารตามขั้นตอนวิทยานิพนธ์ - ACTIVE -->
+        <a href="thesis-documents.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] font-medium text-sky-400 bg-[#252b36] border-l-4 border-sky-400 transition">
+          <i class="ph-bold ph-tree-structure text-base text-sky-400"></i>
+          <span>เอกสารตามขั้นตอนวิทยานิพนธ์</span>
+        </a>
+
+        <!-- 5. โครงการพัฒนาบัณฑิต -->
+        <a href="graduate-development.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-chart-line-up text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>โครงการพัฒนาบัณฑิต</span>
+        </a>
+
+        <!-- 6. โครงการเสริมทักษะระดับบัณฑิต -->
+        <a href="skills-enhancement.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-sparkle text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>โครงการเสริมทักษะระดับบัณฑิต</span>
+        </a>
+
+        <!-- 7. English Club -->
+        <a href="english-club.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-translate text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>English Club</span>
+        </a>
+
+        <!-- 8. ลิงก์ที่สำคัญสำหรับบัณฑิต -->
+        <a href="index.html#links" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-link text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>ลิงก์ที่สำคัญสำหรับบัณฑิต</span>
+        </a>
+
+        <!-- 9. ผลงานตีพิมพ์ -->
+        <a href="index.html#publications" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-article text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>ผลงานตีพิมพ์</span>
+        </a>
+
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="p-3 border-t border-[#262c36] text-[11px] text-slate-500 text-center">
+        <span>© 2025-2026 PSU SCIT Graduate</span>
+      </div>
+    </aside>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden"></div>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <main class="flex-1 overflow-y-auto custom-scroll bg-white">
+      
+      <!-- Top Banner Header -->
+      <section class="bg-gradient-to-r from-[#00264d] via-[#004b87] to-[#0077b6] text-white py-8 px-4 sm:px-8 border-b border-blue-900/30 relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 opacity-10 text-white text-9xl pointer-events-none">
+          <i class="ph ph-tree-structure"></i>
+        </div>
+
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
+          <div>
+            <!-- Breadcrumb -->
+            <div class="flex items-center gap-2 text-xs text-sky-200 mb-2">
+              <a href="index.html" class="hover:underline flex items-center gap-1">
+                <i class="ph ph-house"></i>
+                <span>หน้าแรก</span>
+              </a>
+              <span>/</span>
+              <span class="text-white font-medium">เอกสารตามขั้นตอนวิทยานิพนธ์</span>
+            </div>
+            
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
+              <span>เอกสารตามขั้นตอนวิทยานิพนธ์</span>
+            </h1>
+            <p class="text-xs sm:text-sm text-sky-100 mt-1 max-w-2xl font-light">
+              ศูนย์รวมดาวน์โหลดแบบฟอร์มคำร้องวิทยานิพนธ์ (บว.) และขั้นตอนการดำเนินงานด้านเอกสาร (Flowchart) ของระดับ ป.โท และ ป.เอก
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <a href="#flowchart" class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs sm:text-sm font-semibold rounded-xl backdrop-blur-md transition">
+              <i class="ph-bold ph-git-merge"></i>
+              <span>ดู Flowchart</span>
+            </a>
+            <a href="https://grad.psu.ac.th" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-amber-400 hover:bg-amber-300 text-slate-900 text-xs sm:text-sm font-bold rounded-xl shadow-md transition">
+              <i class="ph-bold ph-arrow-square-out"></i>
+              <span>บัณฑิตวิทยาลัย</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Body Container -->
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Search & Category Filters -->
+        <div class="mb-8 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+                <i class="ph-duotone ph-files text-psu-blue text-2xl"></i>
+                <span>แบบฟอร์มคำร้องวิทยานิพนธ์ (บว.) ทั้งหมด 19 แบบฟอร์ม</span>
+              </h2>
+              <p class="text-xs text-slate-500 mt-0.5">คลิกที่แบบฟอร์มเพื่อดาวน์โหลดไฟล์เอกสารจาก Google Drive</p>
+            </div>
+
+            <!-- Real-time Form Search -->
+            <div class="relative w-full sm:w-72">
+              <input id="form-search" type="text" placeholder="ค้นหาชื่อแบบฟอร์ม เช่น บว.1, บว.4, Turnitin..." class="w-full text-xs text-slate-800 placeholder-slate-400 bg-slate-50 border border-slate-200 rounded-xl pl-8 pr-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-psu-blue transition" />
+              <i class="ph ph-magnifying-glass absolute left-2.5 top-3 text-slate-400 text-xs"></i>
+            </div>
+          </div>
+
+          <!-- Category Filter Buttons -->
+          <div class="flex flex-wrap items-center gap-2 pt-1 text-xs">
+            <button class="filter-btn px-3.5 py-1.5 rounded-lg bg-psu-blue text-white font-semibold transition" data-category="all">ทั้งหมด (19)</button>
+            <button class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition" data-category="advisor-proposal">อาจารย์ที่ปรึกษา & โครงร่าง</button>
+            <button class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition" data-category="defense-submit">การสอบวิทยานิพนธ์ & ส่งเล่ม</button>
+            <button class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition" data-category="qe">สอบวัดคุณสมบัติ (QE)</button>
+            <button class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition" data-category="general">คำร้องทั่วไป & เทียบโอน</button>
+          </div>
+        </div>
+
+        <!-- 19 Document Cards Grid -->
+        <div id="forms-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <!-- 1. บว.1 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-blue-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="advisor-proposal">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-blue-50 text-psu-blue text-xs font-bold border border-blue-200/60">แบบฟอร์ม บว.1</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขออนุมัติเเต่งตั้ง อาจารย์ที่ปรึกษาวิทยานิพนธ์หลักเเละอาจารย์ที่ปรึกษาวิทยานิพนธ์ร่วม
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1SETDkdcPyFwpfiMFRBtDAomJJGbvtVAG/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-psu-blue hover:text-sky-600">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 2. บว.1/1 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-blue-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="advisor-proposal">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-blue-50 text-psu-blue text-xs font-bold border border-blue-200/60">แบบฟอร์ม บว.1/1</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขออนุมัติเปลี่ยนแปลงหรือเพิ่มเติมอาจารย์ที่ปรึกษาวิทยานิพนธ์หลักและอาจารย์ที่ปรึกษาวิทยานิพนธ์ร่วม
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1jBjiEMjgQc-aF5JZn60ZXz85Aq1sAu0H/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-psu-blue hover:text-sky-600">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 3. บว.สุราษฎร์1 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-blue-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="advisor-proposal">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 text-xs font-bold border border-sky-200/60">บว.สุราษฎร์ 1</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขออนุมัติแต่งตั้งคณะกรรมการสอบโครงร่างวิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1ETSD1e5z6G2GcmYz9S__BPI0idVxD7lT/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-psu-blue hover:text-sky-600">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 4. บว.สุราษฎร์2 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-blue-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="advisor-proposal">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 text-xs font-bold border border-sky-200/60">บว.สุราษฎร์ 2</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขอสอบโครงร่างวิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1VC_Y2fQHJPEUYaDgyXf-UlLffh3GeNrB/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-psu-blue hover:text-sky-600">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 5. บว.2 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-blue-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="advisor-proposal">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-blue-50 text-psu-blue text-xs font-bold border border-blue-200/60">แบบฟอร์ม บว.2</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขออนุมัติโครงร่างวิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1TlkbOtuQCRsZU8iYQlTyLYbKpYbP1kso/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-psu-blue hover:text-sky-600">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 6. บว.2/1 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-blue-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="advisor-proposal">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-blue-50 text-psu-blue text-xs font-bold border border-blue-200/60">แบบฟอร์ม บว.2/1</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขออนุมัติเปลี่ยนแปลงชื่อโครงร่างวิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1lkiQuSMCFt_C3shggJey-8RrWob1C7Y8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-psu-blue hover:text-sky-600">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 7. บว.3 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="defense-submit">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/60">แบบฟอร์ม บว.3</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขออนุมัติแต่งตั้งคณะกรรมการสอบวิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/11L41vQEzj487H7oTTR5XdT6dMevkEoDu/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 8. บว.3/1 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="defense-submit">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/60">แบบฟอร์ม บว.3/1</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขออนุมัติเปลี่ยนแปลงคณะกรรมการสอบวิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1LuC-j_rf2opytsX66RQ5u9dQMPAMlWyd/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 9. บว.4 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="defense-submit">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/60">แบบฟอร์ม บว.4</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขอสอบวิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1OpvSbTyvYdsvjoTbHviVSMbzexoO-Ar4/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 10. บว.4/1 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="defense-submit">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/60">แบบฟอร์ม บว.4/1</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ส่งข้อมูลการเผยแพร่วิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1B21EXGTC5aaN0EuD4UqLFs-tbDJJDUll/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 11. บว.4/2 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="defense-submit">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/60">แบบฟอร์ม บว.4/2</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขอเปลี่ยนแปลงวันสอบวิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1sFvhCIpH3C_lqk1Z_oyBGvCk_bAVfEIZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 12. บว.5 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="defense-submit">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/60">แบบฟอร์ม บว.5</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                การแจ้งผลสอบวิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1ZVL_hqTSWOi-JXbnA5FFsvWmYf3YEWtw/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 13. บว.6 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="defense-submit">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/60">แบบฟอร์ม บว.6</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ตรวจสอบวิทยานิพนธ์
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1s8IShSZtMatcUDytdNdKy-eQ1PK_hpV2/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 14. บว.8 & บว.14 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="defense-submit">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/60">บว.8 และ บว.14</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                การขอส่งวิทยานิพนธ์เล่มสมบูรณ์ (บว.8) และรายงานต้นฉบับแสดงผลการตรวจสอบการคัดลอกผลงานการเขียนทางวิชาการ Turnitin (บว.14)
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1F1shy404vB1GWizR0ePA7ivxCXOrjlWq/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 15. บว.สุราษฎร์ 10.1 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-purple-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="qe">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-purple-50 text-purple-700 text-xs font-bold border border-purple-200/60">บว.สุราษฎร์ 10.1</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขอสอบวัดคุณสมบัติ (Qualifying Examination - ป.เอก)
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/18-Yf4BAhhcN5cnPh3Hzi6KRwIpUATFy8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 16. บว.สุราษฎร์ 10.2 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-purple-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="qe">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-purple-50 text-purple-700 text-xs font-bold border border-purple-200/60">บว.สุราษฎร์ 10.2</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขออนุมัติแต่งตั้งคณะกรรมการสอบวัดคุณสมบัติ
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/13zfC9w7XlaJMMHhS_Zh532Bl82O_3hlG/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 17. บว.สุราษฎร์ 10.3 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-purple-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="qe">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-purple-50 text-purple-700 text-xs font-bold border border-purple-200/60">บว.สุราษฎร์ 10.3</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขอแจ้งผลการสอบวัดคุณสมบัติ
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1MQa1PE57hKIAYd1oRJdI3lklqZpPgVWY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 18. บว.10 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-amber-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="general">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200/60">แบบฟอร์ม บว.10</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขออนุมัติเทียบโอนรายวิชา
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/17UMgb43457Tv6QPKsyJb82-Fi_nLoamd/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 19. บว.13 -->
+          <div class="doc-card bg-white rounded-2xl p-4 border border-slate-200 hover:border-amber-400 hover:shadow-md transition duration-200 flex flex-col justify-between" data-category="general">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200/60">แบบฟอร์ม บว.13</span>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i class="ph ph-file-doc"></i> Google Drive
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">
+                ขออนุมัติเปลี่ยนระดับการศึกษา
+              </h3>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+              <a href="https://drive.google.com/file/d/1-6L2iutwA4IpLYMYAJ0y7anIrLwCSHOH/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-900">
+                <span>ดาวน์โหลดแบบฟอร์ม</span>
+                <i class="ph-bold ph-arrow-square-out text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <hr class="my-14 border-slate-200">
+
+        <!-- ==================== FLOWCHART SECTION ==================== -->
+        <div id="flowchart" class="space-y-8">
+          
+          <div class="text-center max-w-2xl mx-auto space-y-2">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-psu-blue font-bold text-xs uppercase tracking-wider">
+              Workflow Guide
+            </div>
+            <h2 class="text-2xl font-bold text-slate-900">ขั้นตอนการดำเนินงานด้านเอกสารวิทยานิพนธ์ (Flowchart)</h2>
+            <p class="text-xs sm:text-sm text-slate-500">แผนผังขั้นตอนการส่งเอกสารตั้งแต่เริ่มต้นจนถึงสำเร็จการศึกษา</p>
+          </div>
+
+          <!-- Flowchart Cards (Master & Doctoral) -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            
+            <!-- Flowchart 1: ป.โท (Master's Degree) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+              <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-blue-100 text-psu-blue flex items-center justify-center text-xl font-bold">
+                    <i class="ph-duotone ph-student"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-base">ขั้นตอนด้านเอกสาร (ป.โท)</h3>
+                    <p class="text-xs text-slate-500">ระดับปริญญาโท (Master's Degree Flowchart)</p>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-blue-50 text-psu-blue text-xs font-bold border border-blue-200/60">ป.โท</span>
+              </div>
+
+              <!-- Interactive Step Roadmap for Master's -->
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                  <span class="w-6 h-6 rounded-full bg-psu-navy text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                  <div>
+                    <div class="font-bold text-slate-800">แต่งตั้งอาจารย์ที่ปรึกษา & เสนอโครงร่าง</div>
+                    <div class="text-xs text-slate-500 mt-0.5">ส่งแบบฟอร์ม บว.1, บว.สุราษฎร์ 1 (แต่งตั้ง กก.), บว.สุราษฎร์ 2 (ขอสอบ) และ บว.2 (อนุมัติโครงร่าง)</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                  <span class="w-6 h-6 rounded-full bg-psu-blue text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                  <div>
+                    <div class="font-bold text-slate-800">ดำเนินการวิจัย & บันทึกก้าวหน้า</div>
+                    <div class="text-xs text-slate-500 mt-0.5">รายงานผลในระบบ บว. MIS ทุกภาคการศึกษา (หากปรับเปลี่ยนโครงร่างส่ง บว.2/1)</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                  <span class="w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                  <div>
+                    <div class="font-bold text-slate-800">ขอสอบวิทยานิพนธ์ (Defense)</div>
+                    <div class="text-xs text-slate-500 mt-0.5">ส่ง บว.3 (แต่งตั้ง กก. สอบ), บว.4 (ขอสอบ), บว.4/1 (ข้อมูลเผยแพร่), สอบเสร็จส่งผล บว.5</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                  <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                  <div>
+                    <div class="font-bold text-slate-800">ตรวจเล่ม & ส่งเล่มสมบูรณ์</div>
+                    <div class="text-xs text-slate-500 mt-0.5">ส่ง บว.6 (ตรวจสอบวิทยานิพนธ์) และส่งเล่มสมบูรณ์พร้อมผล Turnitin ผ่าน บว.8 / บว.14</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Flowchart 2: ป.เอก (Doctoral Degree) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+              <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl font-bold">
+                    <i class="ph-duotone ph-graduation-cap"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-base">ขั้นตอนด้านเอกสาร (ป.เอก)</h3>
+                    <p class="text-xs text-slate-500">ระดับปริญญาเอก (Doctoral Degree Flowchart)</p>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 text-xs font-bold border border-purple-200/60">ป.เอก</span>
+              </div>
+
+              <!-- Interactive Step Roadmap for Doctoral -->
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                  <span class="w-6 h-6 rounded-full bg-purple-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                  <div>
+                    <div class="font-bold text-slate-800">แต่งตั้งที่ปรึกษา & สอบวัดคุณสมบัติ (QE)</div>
+                    <div class="text-xs text-slate-500 mt-0.5">ส่ง บว.1 และยื่นสอบ QE ด้วย บว.สุราษฎร์ 10.1, แต่งตั้ง กก. 10.2, แจ้งผล 10.3</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                  <span class="w-6 h-6 rounded-full bg-purple-700 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                  <div>
+                    <div class="font-bold text-slate-800">เสนอโครงร่างวิทยานิพนธ์</div>
+                    <div class="text-xs text-slate-500 mt-0.5">ส่ง บว.สุราษฎร์ 1 (แต่งตั้ง กก. สอบโครงร่าง), บว.สุราษฎร์ 2 (ขอสอบ), บว.2 (อนุมัติโครงร่าง)</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                  <span class="w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                  <div>
+                    <div class="font-bold text-slate-800">ขอสอบวิทยานิพนธ์ & ผลงานตีพิมพ์สากล</div>
+                    <div class="text-xs text-slate-500 mt-0.5">ส่ง บว.3, บว.4, บว.4/1 (หลักฐานการตีพิมพ์ตามเกณฑ์ Scopus/WOS) และแจ้งผล บว.5</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                  <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                  <div>
+                    <div class="font-bold text-slate-800">ตรวจรูปแบบ & ส่งเล่มสมบูรณ์</div>
+                    <div class="text-xs text-slate-500 mt-0.5">ส่ง บว.6 ตรวจสอบรูปเล่ม และยื่นส่งเล่มสมบูรณ์พร้อมใบรับรอง Turnitin (บว.8 / บว.14)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Help Info Box -->
+        <div class="mt-12 bg-slate-50 rounded-2xl p-5 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-psu-blue flex items-center justify-center text-xl flex-shrink-0">
+              <i class="ph-bold ph-info"></i>
+            </div>
+            <div>
+              <div class="text-sm font-bold text-slate-800">มีข้อสงสัยเกี่ยวกับแบบฟอร์ม หรือขั้นตอนการดำเนินงาน?</div>
+              <div class="text-xs text-slate-500">ติดต่อ คุณพันธ์ทิพย์ เจริญศักดิ์ (พี่จุ๊บ) นักวิชาการอุดมศึกษา เบอร์ภายใน 077 278 889</div>
+            </div>
+          </div>
+          <a href="mailto:pantip.ch@psu.ac.th" class="inline-flex items-center gap-1.5 text-xs font-bold text-psu-blue hover:underline flex-shrink-0">
+            <i class="ph-bold ph-envelope"></i>
+            <span>ส่งอีเมลติดต่อ</span>
+          </a>
+        </div>
+
+      </section>
+
+      <!-- Footer Info -->
+      <footer class="bg-slate-100 border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-500">
+        คณะวิทยาศาสตร์และเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี • SCIT PSU
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- JavaScript for Interactions -->
+  <script>
+    // Mobile Drawer Toggle
+    const toggleBtn = document.getElementById('toggle-sidebar');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (toggleBtn && sidebar && overlay) {
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('hidden');
+      });
+
+      overlay.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      });
+    }
+
+    // Category Tabs Filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const docCards = document.querySelectorAll('.doc-card');
+    const searchInput = document.getElementById('form-search');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-psu-blue', 'text-white', 'font-semibold');
+          b.classList.add('bg-slate-100', 'text-slate-700', 'font-medium');
+        });
+        btn.classList.add('bg-psu-blue', 'text-white', 'font-semibold');
+        btn.classList.remove('bg-slate-100', 'text-slate-700', 'font-medium');
+
+        const cat = btn.getAttribute('data-category');
+        applyFilter(cat, searchInput ? searchInput.value.toLowerCase().trim() : '');
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const activeBtn = document.querySelector('.filter-btn.bg-psu-blue');
+        const cat = activeBtn ? activeBtn.getAttribute('data-category') : 'all';
+        applyFilter(cat, e.target.value.toLowerCase().trim());
+      });
+    }
+
+    function applyFilter(category, query) {
+      docCards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        const matchCat = (category === 'all' || cardCat === category);
+        const matchQuery = (query === '' || card.textContent.toLowerCase().includes(query));
+        
+        if (matchCat && matchQuery) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

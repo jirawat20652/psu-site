@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ผลงานตีพิมพ์ | SCIT PSU</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script>
+    tailwind.config = {theme:{extend:{fontFamily:{sans:['Prompt','Inter','sans-serif']},colors:{psu:{sidebar:'#181b20',sidebarHover:'#22272f',sidebarActive:'#2a313d',navActive:'#252b36',navHover:'#20252e',goldGear:'#f59e0b',linkTeal:'#2b7a88'}}}};
+  </script>
+  <style>
+    body {font-family:'Prompt',sans-serif;}
+    .custom-scroll::-webkit-scrollbar{width:5px;}
+    .custom-scroll::-webkit-scrollbar-thumb{background:#333a46;border-radius:4px;}
+    .custom-scroll::-webkit-scrollbar-thumb:hover{background:#475569;}
+  </style>
+</head>
+<body class="h-full bg-[#f8f9fa] text-slate-800 flex flex-col antialiased">
+  <!-- Mobile Top Bar -->
+  <header class="md:hidden bg-[#181b20] text-white px-4 py-3 flex items-center justify-between border-b border-slate-700 z-50 sticky top-0">
+    <div class="flex items-center gap-3">
+      <svg class="w-8 h-8 flex-shrink-0" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="42" stroke="#f59e0b" stroke-width="8" stroke-dasharray="8 6"/><circle cx="50" cy="50" r="28" fill="#181b20" stroke="#0ea5e9" stroke-width="5"/><path d="M50 32 L50 68 M32 50 L68 50" stroke="#f43f5e" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="10" fill="#f59e0b"/></svg>
+      <div>
+        <span class="font-bold text-sm tracking-wide text-white block">SCIT GRADUATE</span>
+        <span class="text-[10px] text-slate-400 block -mt-1">ผลงานตีพิมพ์</span>
+      </div>
+    </div>
+    <button id="toggle-sidebar" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle menu"><i class="ph-bold ph-list text-2xl"></i></button>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden relative">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-[#181b20] text-slate-300 flex flex-col border-r border-[#262c36] transform -translate-x-full md:translate-x-0 md:static transition-transform duration-200 ease-in-out">
+      <div class="p-5 border-b border-[#262c36]/80 flex items-center gap-3">
+        <div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+          <svg class="w-full h-full drop-shadow-md" viewBox="0 0 100 100" fill="none"><path d="M50 5 L56 16 L68 12 L70 24 L82 25 L79 37 L90 42 L83 52 L91 60 L81 68 L85 80 L73 82 L71 94 L59 91 L53 100 L47 100 L41 91 L29 94 L27 82 L15 80 L19 68 L9 60 L17 52 L10 42 L21 37 L18 25 L30 24 L32 12 L44 16 Z" fill="#d97706" opacity="0.9"/><circle cx="50" cy="50" r="32" fill="#181b20" stroke="#f59e0b" stroke-width="4"/><path d="M50 20 A30 30 0 0 1 80 50" stroke="#0284c7" stroke-width="7" stroke-linecap="round"/><path d="M80 50 A30 30 0 0 1 50 80" stroke="#10b981" stroke-width="7" stroke-linecap="round"/><path d="M50 80 A30 30 0 0 1 20 50" stroke="#f43f5e" stroke-width="7" stroke-linecap="round"/><path d="M20 50 A30 30 0 0 1 50 20" stroke="#8b5cf6" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="50" r="14" fill="#00264d"/><circle cx="50" cy="50" r="6" fill="#f59e0b"/></svg>
+        </div>
+        <div class="leading-tight">
+          <div class="font-extrabold text-white text-base tracking-wider flex items-center gap-1.5"><span>SCIT</span><span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-blue-900/60 text-sky-300 border border-sky-500/30">PSU</span></div>
+          <div class="text-[11px] text-slate-400 font-light mt-0.5">บัณฑิตศึกษา สุราษฎร์ธานี</div>
+        </div>
+      </div>
+      <nav class="flex-1 overflow-y-auto custom-scroll py-3 px-3 space-y-1">
+        <a href="index.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition"><i class="ph-bold ph-house text-base text-slate-400 group-hover:text-amber-400 transition"></i><span>Home</span></a>
+        <a href="thesis-status.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition"><i class="ph-bold ph-file-magnifying-glass text-base text-slate-400 group-hover:text-amber-400 transition"></i><span>รายงานสถานะวิทยานิพนธ์ (บว.)</span></a>
+        <a href="thesis-documents.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition"><i class="ph-bold ph-tree-structure text-base text-slate-400 group-hover:text-amber-400 transition"></i><span>เอกสารตามขั้นตอนวิทยานิพนธ์</span></a>
+        <a href="graduate-development.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition"><i class="ph-bold ph-chart-line-up text-base text-slate-400 group-hover:text-amber-400 transition"></i><span>โครงการพัฒนาบัณฑิต</span></a>
+        <a href="skills-enhancement.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition"><i class="ph-bold ph-sparkle text-base text-slate-400 group-hover:text-amber-400 transition"></i><span>โครงการเสริมทักษะระดับบัณฑิต</span></a>
+        <a href="english-club.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition"><i class="ph-bold ph-translate text-base text-slate-400 group-hover:text-amber-400 transition"></i><span>English Club</span></a>
+        <a href="important-links.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition"><i class="ph-bold ph-link text-base text-slate-400 group-hover:text-amber-400 transition"></i><span>ลิงก์ที่สำคัญสำหรับบัณฑิต</span></a>
+        <a href="publications.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-sky-400 bg-[#252b36] border-l-4 border-sky-400 transition"><i class="ph-bold ph-article text-base text-sky-400"></i><span>ผลงานตีพิมพ์</span></a>
+      </nav>
+      <div class="p-3 border-t border-[#262c36] text-[11px] text-slate-500 text-center"><span>© 2025-2026 PSU SCIT Graduate</span></div>
+    </aside>
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden"></div>
+    <main class="flex-1 overflow-y-auto custom-scroll bg-white">
+      <section class="bg-gradient-to-r from-[#003b73] via-[#005596] to-[#0072b2] text-white py-8 px-4 sm:px-8 border-b border-blue-900/30">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold">ผลงานตีพิมพ์</h1>
+            <p class="text-sm text-sky-100 mt-2">ผลงานตีพิมพ์ของนักศึกษาระดับบัณฑิตศึกษา</p>
+          </div>
+        </div>
+      </section>
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-4 border rounded-lg hover:shadow-lg transition">
+            <h3 class="font-bold text-lg mb-2"><a href="https://docs.google.com/spreadsheets/d/1aVJfMiOx4eH4W6bWwIXl1HKQh_3G_ENqLSGlqFWZ5KE/edit#gid=1386834576" target="_blank" class="text-psu-blue hover:underline">ผลงานตีพิมพ์นักศึกษาระดับบัณฑิตศึกษา หลักสูตร วท.ม.สาขาวิชาเคมีประยุกต์</a></h3>
+          </div>
+          <div class="p-4 border rounded-lg hover:shadow-lg transition">
+            <h3 class="font-bold text-lg mb-2"><a href="https://docs.google.com/spreadsheets/d/18XPoo1GOQNaZ17QEzuaeukf5yUoBdGDHj85A34ndalA/edit#gid=1386834576" target="_blank" class="text-psu-blue hover:underline">ผลงานตีพิมพ์นักศึกษาระดับบัณฑิตศึกษา หลักสูตร วท.ม.สาขาวิชาเทคโนโลยียาง</a></h3>
+          </div>
+          <div class="p-4 border rounded-lg hover:shadow-lg transition">
+            <h3 class="font-bold text-lg mb-2"><a href="https://docs.google.com/spreadsheets/d/1a9bj2qND0e4ELcrz1ryost-Njrp54Oip7nsxmfOkSlU/edit?usp=sharing" target="_blank" class="text-psu-blue hover:underline">ผลงานตีพิมพ์นักศึกษาระดับบัณฑิตศึกษา หลักสูตร วท.ม.สาขาวิชาคณิตศาสตร์ประยุกต์และวิทยาการคำนวณ</a></h3>
+          </div>
+          <div class="p-4 border rounded-lg hover:shadow-lg transition">
+            <h3 class="font-bold text-lg mb-2"><a href="https://docs.google.com/spreadsheets/d/1czIKoXLllU2x-E5_iPMXSt6qF0f4JNUbjh_7G9BgBEk/edit#gid=1386834576" target="_blank" class="text-psu-blue hover:underline">ผลงานตีพิมพ์นักศึกษาระดับบัณฑิตศึกษา หลักสูตร ปร.ด.สาขาวิชาเทคโนโลยียาง</a></h3>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-sidebar');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    if (toggleBtn && sidebar && overlay) {
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('hidden');
+      });
+      overlay.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      });
+    }
+  </script>
+</body>
+</html>

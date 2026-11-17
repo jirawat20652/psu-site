@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โครงการเสริมทักษะระดับบัณฑิต | SCIT PSU</title>
+  
+  <!-- Fonts: Prompt & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Prompt', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            psu: {
+              sidebar: '#181b20',
+              sidebarHover: '#22272f',
+              sidebarActive: '#2a313d',
+              navy: '#00264d',
+              blue: '#005596',
+              sky: '#0284c7',
+              teal: '#319795',
+              linkTeal: '#2b7a88',
+              goldGear: '#f59e0b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #333a46;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="h-full bg-[#f8f9fa] text-slate-800 flex flex-col antialiased">
+
+  <!-- Mobile Top Bar with Hamburger -->
+  <header class="md:hidden bg-[#181b20] text-white px-4 py-3 flex items-center justify-between border-b border-slate-700 z-50 sticky top-0">
+    <div class="flex items-center gap-3">
+      <svg class="w-8 h-8 flex-shrink-0" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="42" stroke="#f59e0b" stroke-width="8" stroke-dasharray="8 6" />
+        <circle cx="50" cy="50" r="28" fill="#181b20" stroke="#0ea5e9" stroke-width="5" />
+        <path d="M50 32 L50 68 M32 50 L68 50" stroke="#f43f5e" stroke-width="4" stroke-linecap="round" />
+        <circle cx="50" cy="50" r="10" fill="#f59e0b" />
+      </svg>
+      <div>
+        <span class="font-bold text-sm tracking-wide text-white block">SCIT GRADUATE</span>
+        <span class="text-[10px] text-slate-400 block -mt-1">โครงการเสริมทักษะระดับบัณฑิต</span>
+      </div>
+    </div>
+    <button id="toggle-sidebar" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle menu">
+      <i class="ph-bold ph-list text-2xl"></i>
+    </button>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden relative">
+
+    <!-- ==================== LEFT SIDEBAR ==================== -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-[#181b20] text-slate-300 flex flex-col border-r border-[#262c36] transform -translate-x-full md:translate-x-0 md:static transition-transform duration-200 ease-in-out">
+      
+      <!-- Sidebar Header / Logo -->
+      <div class="p-5 border-b border-[#262c36]/80 flex items-center gap-3">
+        <div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+          <svg class="w-full h-full drop-shadow-md" viewBox="0 0 100 100" fill="none">
+            <path d="M50 5 L56 16 L68 12 L70 24 L82 25 L79 37 L90 42 L83 52 L91 60 L81 68 L85 80 L73 82 L71 94 L59 91 L53 100 L47 100 L41 91 L29 94 L27 82 L15 80 L19 68 L9 60 L17 52 L10 42 L21 37 L18 25 L30 24 L32 12 L44 16 Z" fill="#d97706" opacity="0.9" />
+            <circle cx="50" cy="50" r="32" fill="#181b20" stroke="#f59e0b" stroke-width="4" />
+            <path d="M50 20 A30 30 0 0 1 80 50" stroke="#0284c7" stroke-width="7" stroke-linecap="round" />
+            <path d="M80 50 A30 30 0 0 1 50 80" stroke="#10b981" stroke-width="7" stroke-linecap="round" />
+            <path d="M50 80 A30 30 0 0 1 20 50" stroke="#f43f5e" stroke-width="7" stroke-linecap="round" />
+            <path d="M20 50 A30 30 0 0 1 50 20" stroke="#8b5cf6" stroke-width="7" stroke-linecap="round" />
+            <circle cx="50" cy="50" r="14" fill="#00264d" />
+            <circle cx="50" cy="50" r="6" fill="#f59e0b" />
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <div class="font-extrabold text-white text-base tracking-wider flex items-center gap-1.5">
+            <span>SCIT</span>
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-blue-900/60 text-sky-300 border border-sky-500/30">PSU</span>
+          </div>
+          <div class="text-[11px] text-slate-400 font-light mt-0.5">บัณฑิตศึกษา สุราษฎร์ธานี</div>
+        </div>
+      </div>
+
+      <!-- Navigation Links List -->
+      <nav class="flex-1 overflow-y-auto custom-scroll py-3 px-3 space-y-1">
+        
+        <!-- 1. Home -->
+        <a href="index.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-house text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>Home</span>
+        </a>
+
+        <!-- 2. รายงานสถานะวิทยานิพนธ์ (บว.) -->
+        <a href="thesis-status.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-file-magnifying-glass text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>รายงานสถานะวิทยานิพนธ์ (บว.)</span>
+        </a>
+
+        <!-- 3. เอกสารตามขั้นตอนวิทยานิพนธ์ -->
+        <a href="thesis-documents.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-tree-structure text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>เอกสารตามขั้นตอนวิทยานิพนธ์</span>
+        </a>
+
+        <!-- 4. โครงการพัฒนาบัณฑิต -->
+        <a href="graduate-development.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-chart-line-up text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>โครงการพัฒนาบัณฑิต</span>
+        </a>
+
+        <!-- 5. โครงการเสริมทักษะระดับบัณฑิต - ACTIVE -->
+        <a href="skills-enhancement.html" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] font-medium text-sky-400 bg-[#252b36] border-l-4 border-sky-400 transition">
+          <i class="ph-bold ph-sparkle text-base text-sky-400"></i>
+          <span>โครงการเสริมทักษะระดับบัณฑิต</span>
+        </a>
+
+        <!-- 6. English Club -->
+        <a href="index.html#english" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-translate text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>English Club</span>
+        </a>
+
+        <!-- 7. ลิงก์ที่สำคัญสำหรับบัณฑิต -->
+        <a href="index.html#links" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-link text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>ลิงก์ที่สำคัญสำหรับบัณฑิต</span>
+        </a>
+
+        <!-- 8. ผลงานตีพิมพ์ -->
+        <a href="index.html#publications" class="nav-item group flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13.5px] text-slate-300 hover:text-white hover:bg-[#20252e] transition">
+          <i class="ph-bold ph-article text-base text-slate-400 group-hover:text-amber-400 transition"></i>
+          <span>ผลงานตีพิมพ์</span>
+        </a>
+
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="p-3 border-t border-[#262c36] text-[11px] text-slate-500 text-center">
+        <span>© 2025-2026 PSU SCIT Graduate</span>
+      </div>
+    </aside>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden"></div>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <main class="flex-1 overflow-y-auto custom-scroll bg-white">
+      
+      <!-- Top Banner Header -->
+      <section class="bg-gradient-to-r from-[#00264d] via-[#004b87] to-[#0077b6] text-white py-8 px-4 sm:px-8 border-b border-blue-900/30 relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 opacity-10 text-white text-9xl pointer-events-none">
+          <i class="ph ph-sparkle"></i>
+        </div>
+
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
+          <div>
+            <!-- Breadcrumb -->
+            <div class="flex items-center gap-2 text-xs text-sky-200 mb-2">
+              <a href="index.html" class="hover:underline flex items-center gap-1">
+                <i class="ph ph-house"></i>
+                <span>หน้าแรก</span>
+              </a>
+              <span>/</span>
+              <span class="text-white font-medium">โครงการเสริมทักษะระดับบัณฑิต</span>
+            </div>
+            
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
+              <span>โครงการเสริมทักษะระดับบัณฑิต</span>
+            </h1>
+            <p class="text-xs sm:text-sm text-sky-100 mt-1 max-w-2xl font-light">
+              โครงการเสริมสร้างกระบวนการคิด การศึกษาวิถีชีวิตชุมชน และกิจกรรมนอกสถานที่ร่วมกันทุกหลักสูตรระดับบัณฑิตศึกษา
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <a href="https://scit-services.surat.psu.ac.th/pms/result_details.php?RESULT_ID=85" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold text-xs sm:text-sm rounded-xl shadow-md transition">
+              <i class="ph-bold ph-globe"></i>
+              <span>ระบบ SCIT-PMS</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Content Container -->
+      <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+              <i class="ph-duotone ph-lightbulb text-amber-500 text-2xl"></i>
+              <span>โครงการเสริมสร้างกระบวนการคิด (Thinking Process & Community Study)</span>
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">กิจกรรมเสริมทักษะนอกสถานที่ร่วมกันทุกหลักสูตรระดับปริญญาโทและปริญญาเอก</p>
+          </div>
+
+          <!-- Quick Search -->
+          <div class="relative w-full sm:w-64">
+            <input id="skill-search" type="text" placeholder="ค้นหาโครงการหรือสถานที่..." class="w-full text-xs text-slate-800 placeholder-slate-400 bg-slate-50 border border-slate-200 rounded-xl pl-8 pr-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-psu-blue transition" />
+            <i class="ph ph-magnifying-glass absolute left-2.5 top-3 text-slate-400 text-xs"></i>
+          </div>
+        </div>
+
+        <div id="skills-container" class="space-y-8">
+
+          <!-- EVENT 1: 23 สิงหาคม 2567 (Featured Recent Event) -->
+          <article class="skill-card bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 hover:border-blue-400 shadow-sm hover:shadow-lg transition duration-300">
+            <div class="flex flex-col lg:flex-row gap-6 items-start">
+              
+              <!-- Left Date Badge -->
+              <div class="w-full lg:w-48 flex-shrink-0 flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-br from-[#00264d] to-[#0284c7] text-white text-center shadow-md">
+                <span class="text-xs font-bold text-amber-300 uppercase tracking-widest mb-1">กิจกรรมล่าสุด</span>
+                <span class="text-3xl sm:text-4xl font-extrabold text-white">23</span>
+                <span class="text-sm font-semibold text-sky-200">สิงหาคม 2567</span>
+                <span class="text-[11px] text-slate-300 mt-2 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20">นอกสถานที่</span>
+              </div>
+
+              <!-- Center/Right Details -->
+              <div class="flex-1 space-y-3">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded bg-blue-50 text-psu-blue text-xs font-bold border border-blue-200/60">
+                    ประจำปี 2567
+                  </span>
+                  <span class="text-xs text-slate-500">คณะวิทยาศาสตร์และเทคโนโลยีอุตสาหกรรม</span>
+                </div>
+
+                <h3 class="text-lg sm:text-xl font-bold text-slate-900 hover:text-psu-blue leading-snug transition">
+                  <a href="https://scit-services.surat.psu.ac.th/pms/result_details.php?RESULT_ID=85" target="_blank" rel="noopener noreferrer">
+                    โครงการเสริมสร้างกระบวนการคิด ระดับบัณฑิตศึกษา ประจำปี 2567
+                  </a>
+                </h3>
+
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  จัดขึ้น ณ หาดในเพลา จังหวัดนครศรีธรรมราช เพื่อส่งเสริมและสนับสนุนให้นักศึกษาได้เข้าร่วมกิจกรรมทางวิชาการ การศึกษาวิถีชีวิตของชุมชน และการประยุกต์ใช้กระบวนการคิดเชิงวิพากษ์ในการแก้ไขปัญหาและการพัฒนางานวิจัย
+                </p>
+
+                <div class="pt-3 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 text-xs">
+                  <span class="text-slate-500 flex items-center gap-1.5">
+                    <i class="ph-bold ph-map-pin text-rose-500"></i>
+                    <span>หาดในเพลา อ.ขนอม จ.นครศรีธรรมราช</span>
+                  </span>
+
+                  <a href="https://scit-services.surat.psu.ac.th/pms/result_details.php?RESULT_ID=85" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 bg-psu-blue hover:bg-slate-900 text-white font-semibold rounded-xl transition">
+                    <span>อ่านรายละเอียดเพิ่มเติม (SCIT-PMS)</span>
+                    <i class="ph-bold ph-arrow-up-right text-xs"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- EVENT 2: โครงการเสริมสร้างกระบวนการคิด (นอกสถานที่ร่วมกันทุกหลักสูตร) -->
+          <article class="skill-card bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 hover:border-emerald-400 shadow-sm hover:shadow-lg transition duration-300">
+            <div class="flex flex-col lg:flex-row gap-6 items-start">
+              
+              <!-- Left Visual Badge -->
+              <div class="w-full lg:w-48 flex-shrink-0 flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-800 text-white text-center shadow-md">
+                <i class="ph-duotone ph-files text-4xl text-emerald-200 mb-1"></i>
+                <span class="text-xs font-bold text-emerald-100 uppercase tracking-widest">เอกสารโครงการ</span>
+                <span class="text-sm font-semibold text-white mt-1">ทุกหลักสูตร</span>
+                <span class="text-[11px] text-emerald-200 mt-2 px-2.5 py-0.5 rounded-full bg-black/20">Google Drive</span>
+              </div>
+
+              <!-- Center/Right Details -->
+              <div class="flex-1 space-y-3">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/60">
+                    นอกสถานที่ร่วมกันทุกหลักสูตร
+                  </span>
+                  <span class="text-xs text-slate-500">เอกสารกำหนดการและรายละเอียดโครงการ</span>
+                </div>
+
+                <h3 class="text-lg sm:text-xl font-bold text-slate-900 hover:text-emerald-700 leading-snug transition">
+                  <a href="https://drive.google.com/file/d/1kDD9z-6BvPD_MXK3QKCfbcHSkD_2D7MJ/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                    โครงการเสริมสร้างกระบวนการคิด ระดับบัณฑิตศึกษา (นอกสถานที่ร่วมกันทุกหลักสูตร)
+                  </a>
+                </h3>
+
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  กำหนดการ แผนผังกิจกรรม และรายละเอียดการเข้าร่วมโครงการเสริมสร้างกระบวนการคิดเชิงบูรณาการสำหรับนักศึกษาทุกสาขาวิชาในระดับบัณฑิตศึกษา
+                </p>
+
+                <div class="pt-3 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 text-xs">
+                  <span class="text-slate-500 flex items-center gap-1.5">
+                    <i class="ph-bold ph-users-three text-emerald-600"></i>
+                    <span>นักศึกษา วท.ม. และ ปร.ด. ทุกสาขาวิชา</span>
+                  </span>
+
+                  <a href="https://drive.google.com/file/d/1kDD9z-6BvPD_MXK3QKCfbcHSkD_2D7MJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-slate-900 text-white font-semibold rounded-xl transition">
+                    <i class="ph-bold ph-file-pdf"></i>
+                    <span>เปิดดูเอกสารกำหนดการ</span>
+                    <i class="ph-bold ph-arrow-up-right text-xs"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- EVENT 3: ประจำปี 2566 -->
+          <article class="skill-card bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 hover:border-amber-400 shadow-sm hover:shadow-lg transition duration-300">
+            <div class="flex flex-col lg:flex-row gap-6 items-start">
+              
+              <!-- Left Visual Badge -->
+              <div class="w-full lg:w-48 flex-shrink-0 flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-800 text-white text-center shadow-md">
+                <span class="text-xs font-bold text-amber-200 uppercase tracking-widest mb-1">ปีการศึกษา 2566</span>
+                <span class="text-3xl sm:text-4xl font-extrabold text-white">2566</span>
+                <span class="text-sm font-semibold text-amber-100">กิจกรรมนอกสถานที่</span>
+                <span class="text-[11px] text-amber-200 mt-2 px-2.5 py-0.5 rounded-full bg-black/20">Community Study</span>
+              </div>
+
+              <!-- Center/Right Details -->
+              <div class="flex-1 space-y-3">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200/80">
+                    ประจำปี 2566
+                  </span>
+                  <span class="text-xs text-slate-500">คณะวิทยาศาสตร์และเทคโนโลยีอุตสาหกรรม</span>
+                </div>
+
+                <h3 class="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                  โครงการเสริมสร้างกระบวนการคิด ระดับบัณฑิตศึกษา ประจำปี 2566 (นอกสถานที่ร่วมกันทุกหลักสูตร)
+                </h3>
+
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  กิจกรรมพัฒนาทักษะกระบวนการคิดเชิงวิเคราะห์และการศึกษาเรียนรู้สภาพแวดล้อมวิถีชุมชน เสริมสร้างความร่วมมือระหว่างนักศึกษาต่างสาขาวิชาเพื่อการประยุกต์ใช้ในการทำวิจัย
+                </p>
+
+                <div class="pt-3 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 text-xs text-slate-500">
+                  <span class="flex items-center gap-1.5">
+                    <i class="ph-bold ph-compass text-amber-600"></i>
+                    <span>กิจกรรมศึกษาดูงานและเสริมทักษะนอกสถานที่</span>
+                  </span>
+
+                  <a href="https://drive.google.com/file/d/1kDD9z-6BvPD_MXK3QKCfbcHSkD_2D7MJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-900">
+                    <span>ดูเอกสารย้อนหลัง</span>
+                    <i class="ph-bold ph-arrow-up-right text-xs"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Help Info Box -->
+        <div class="mt-12 bg-slate-50 rounded-2xl p-5 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-psu-blue flex items-center justify-center text-xl flex-shrink-0">
+              <i class="ph-bold ph-info"></i>
+            </div>
+            <div>
+              <div class="text-sm font-bold text-slate-800">ต้องการสอบถามข้อมูลโครงการเสริมทักษะหรือกิจกรรมนอกสถานที่?</div>
+              <div class="text-xs text-slate-500">ติดต่อ คุณพันธ์ทิพย์ เจริญศักดิ์ (พี่จุ๊บ) นักวิชาการอุดมศึกษา เบอร์ภายใน 077 278 889</div>
+            </div>
+          </div>
+          <a href="mailto:pantip.ch@psu.ac.th" class="inline-flex items-center gap-1.5 text-xs font-bold text-psu-blue hover:underline flex-shrink-0">
+            <i class="ph-bold ph-envelope"></i>
+            <span>ส่งอีเมลติดต่อ</span>
+          </a>
+        </div>
+
+      </section>
+
+      <!-- Footer Info -->
+      <footer class="bg-slate-100 border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-500">
+        คณะวิทยาศาสตร์และเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี • SCIT PSU
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- JavaScript for Interactions -->
+  <script>
+    // Mobile Drawer Toggle
+    const toggleBtn = document.getElementById('toggle-sidebar');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (toggleBtn && sidebar && overlay) {
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('hidden');
+      });
+
+      overlay.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      });
+    }
+
+    // Real-time Search Filter for Skill Activities
+    const searchInput = document.getElementById('skill-search');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        skillCards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
